@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Word Tree</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo"></div>
+        <h1><%= title %></h1>
+        <h3><%= description %></h3>
+    </header>
+    <div class="opinion-list">
+        <% for(var i=0; i<opinions.length; i++) {%>
+        <div class="opinion">
+            <span><%= opinions[i].opinion %></span>
+            <h3>BY <%= opinions[i].name %></h3>
+        </div>
+        <% } %>
+
+    </div>
+    <a class="arrow-left" href="/"></a>
+    <h5>Develop By Raymond</h5>
+</body>
+
+</html>
+
+<style>
+    html,
+    html body,
+    html body header,
+    html body .opinion-list,
+    html body .opinion-list .opinion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    html {
+        color: #3e4a59;
+        font-family: "Helvetica", "Arial", "LiHei Pro", "黑體-繁", "微軟正黑體",
+            sans-serif;
+    }
+
+    html h1,
+    html h2,
+    html h3,
+    html h4,
+    html h5,
+    html h6 {
+        margin: 5px 0;
+    }
+
+    html h1 {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+
+    html h3 {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    html h5 {
+        font-size: 12px;
+    }
+
+    html body {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        max-width: 480px;
+        margin: 0;
+    }
+
+    html body header {
+        margin-top: 5vh;
+        white-space: pre-line;
+    }
+
+    html body header .logo {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-image: url('../../images/logo.png');
+        margin-bottom: 5px;
+    }
+
+    html body header h3 {
+        max-width: 320px;
+        color: rgba(62, 74, 89, 0.6);
+        text-align: center;
+    }
+
+    html body .opinion-list {
+        flex: 99;
+        margin: 2vh 5vw;
+        width: 350px;
+    }
+
+    html body .opinion-list .opinion {
+        justify-content: space-between;
+        width: 90%;
+        max-width: 320px;
+        min-height: 150px;
+        border-radius: 20px;
+        padding: 0 15px;
+        margin: 10px 0;
+        box-shadow: 0px 2px 7px 1px rgba(144, 116, 218, 0.3);
+    }
+
+    html body .opinion-list .opinion span {
+        width: 100%;
+        margin-top: 8px;
+        color: #3e4a59;
+        font-weight: 600;
+        word-wrap:break-word;
+    }
+
+    html body .opinion-list .opinion h3 {
+        width: 95%;
+        margin-top: 15px;
+        text-align: right;
+        padding: 0 20px;
+        line-height: 15px;
+    }
+
+    html body .arrow-left {
+        position: absolute;
+        left: 5vw;
+        top: 10px;
+        min-width: 30px;
+        min-height: 30px;
+        background-image: url('../../images/left.svg');
+        background-size: cover;
+    }
+</style>

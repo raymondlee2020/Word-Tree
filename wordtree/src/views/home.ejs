@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Word Tree</title>
+</head>
+
+<body onload="refreshUrl()">
+    <header>
+        <a href="./trees"><div class="logo"></div></a>
+        <h1>Word Tree</h1>
+        <h3>Collect & Analysis The Opinions<br>For Different Topics</h3>
+    </header>
+    <div class="topic-home">
+        <form action="">
+            <select id="topic" name="topic-list" onchange="refreshUrl()">
+                <% for(var i=0; i<topics.length; i++) {%>
+                <option value=<%= topics[i] %> <% if (i==selectedOption) { %><%= "selected" %><% } %>><%= topics[i] %>
+                </option>
+                <% } %>
+            </select>
+            <a id="saySomething">Say Something</a>
+            <a id="viewOpinions">View Opinions</a>
+        </form>
+    </div>
+    <footer>
+        <h5>Develop By Raymond</h5>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    function refreshUrl() {
+        let select = document.getElementById("topic");
+        let index = select.selectedIndex;
+        let topic = select.options[index].value;
+        document.getElementById("saySomething").href = "./topic/" + topic + "/form";
+        document.getElementById("viewOpinions").href = "./topic/" + topic + "/list";
+    }
+</script>
+
+<style>
+    html,
+    html body,
+    html body header,
+    html body .topic-home,
+    html body .topic-home form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    html body .topic-home form a {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    html {
+        color: #3e4a59;
+        font-family: "Helvetica", "Arial", "LiHei Pro", "黑體-繁", "微軟正黑體",
+            sans-serif;
+    }
+
+    html h1,
+    html h2,
+    html h3,
+    html h4,
+    html h5,
+    html h6 {
+        margin: 5px 0;
+    }
+
+    html h1 {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+
+    html h3 {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    html h5 {
+        font-size: 12px;
+    }
+
+    html body {
+        width: 100vw;
+        height: 100vh;
+        max-width: 480px;
+        margin: 0;
+    }
+
+    html body header {
+        margin-top: 12vh;
+    }
+
+    html body header .logo {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-image: url('images/logo.png');
+        margin-bottom: 5px;
+    }
+
+    html body header h3 {
+        color: rgba(62, 74, 89, 0.6);
+        text-align: center;
+    }
+
+    html body .topic-home {
+        width: 100%;
+        flex: 99;
+        margin: 7.5vh 10px;
+    }
+
+    html body .topic-home form {
+        width: 100%;
+    }
+
+    html body .topic-home form select {
+        width: 80%;
+        max-width: 300px;
+        color: rgba(62, 74, 89, 0.6);
+        border: 1px rgba(62, 74, 89, 0.6) solid;
+        border-radius: 30px;
+        padding: 6px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    html body .topic-home form select option {
+        font-family: "黑體-繁";
+    }
+
+    html body .topic-home form a {
+        width: 100%;
+    }
+
+    html body .topic-home form a {
+        width: 50%;
+        text-decoration: none;
+        max-width: 200px;
+        padding: 8px;
+        margin-top: 7vh;
+        color: #3e4a59;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 20px;
+        background: white;
+        box-shadow: 0px 2px 7px 1px rgba(144, 116, 218, 0.3);
+    }
+
+    html body .topic-home form a i {
+        display: none;
+    }
+</style>
